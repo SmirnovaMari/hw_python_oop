@@ -94,7 +94,8 @@ class SportsWalking(Training):
         self.height = height
 
     def get_spent_calories(self):
-        spent_calories = ((self.coeff_calorie_3 * self.weight + (self.get_mean_speed()
+        spent_calories = ((self.coeff_calorie_3 * self.weight
+                          + (self.get_mean_speed()
                            ** 2 // self.height)
                            * self.coeff_calorie_4 * self.weight)
                           ) * self.duration * self.MIN_IN_HR
@@ -118,7 +119,8 @@ class Swimming(Training):
         self.count_pool = count_pool
 
     def get_mean_speed(self):
-        mean_speed = self.length_pool * self.count_pool / self.M_IN_KM / self.duration
+        mean_speed = (self.length_pool * self.count_pool
+                      ) / self.M_IN_KM / self.duration
         return mean_speed
 
     def get_spent_calories(self):
